@@ -35,7 +35,7 @@ class Program
 
             Console.WriteLine("4. Sök produkt"); //Adam
 
-            Console.WriteLine("4. Sök Produkt");
+            Console.WriteLine("5. Avsluta");
 
             Console.WriteLine("3. Avsluta");
 
@@ -59,10 +59,6 @@ class Program
                     
                     break;
 
-                case "4":
-                    SökProdukt(); 
-                    break;
-
                 case "3":
 
                     TaBortProdukt();
@@ -71,7 +67,7 @@ class Program
 
                 case "4":
 
-                    SokProdukt();
+                    SokProdukt(inventory);
 
                     break;
 
@@ -98,13 +94,22 @@ class Program
 
         //Tar in information från användaren
         Console.WriteLine("Ange produktnamn:");
+
         String name = Console.ReadLine().ToLower();
 
         //lägger till i lager
-        inventory.Add(name);
-
+        if (name != null)
+        {
+            inventory.Add(name);
         //meddelar användaren om lyckat genomförande
-        Console.WriteLine("Din produkt har lagts till!\n");
+            Console.WriteLine("Din produkt har lagts till!\n");
+        }
+        else
+        {
+            Console.WriteLine("Ej gilltig sökning, försök igen:");
+            String nameAgain = Console.ReadLine().ToLower();
+            inventory.Add(nameAgain);
+        }
 
         Console.WriteLine("Tryck enter för att komma tillbaka till menyn");
         Console.ReadLine();
@@ -125,9 +130,20 @@ class Program
 
     }
 
+    static void TaBortProdukt(List<Program> inventory)
+    {
+        int i = 0; // Todo: ta bort exempel på index att retunera 
+        // int i = SearchProduct(inventory) 
+        //Så skulle man kunna kalla på metoden i remove metoden
+        //Insert search here, return either and int for position or directly that position
+        inventory.Remove(inventory[i]); // if remove specific position 
+
+
+    }
+
 
     // Sökfunktion - utförd av Adam
-    static void SökProdukt(List<(Product, /*StorageLocation,*/ int)> inventory)
+    static void SokProdukt(List<string> inventory)
     {
         // Skapar UI och input för start sökningen
         Console.WriteLine("Produktsökning\nSkriv det som ska sökas efter");
@@ -143,7 +159,7 @@ class Program
         }
 
         // Söker igenom inventory för att hitta produkter som innehåller namn med passande söktext
-        var searchResults = inventory.Where(item => item.Item1.Name.ToLower().Contains(searchQuery));
+        var searchResults = inventory.Where(item => item.ToLower().Contains(searchQuery));
 
         // Om produkter hittades så körs detta
         if (searchResults.Any())
@@ -153,7 +169,7 @@ class Program
             // Hämtar och visar produkternas namn kategori och pris
             foreach (var item in searchResults)
             {
-                Console.WriteLine($"Produktnamn: {item.Item1.Name}, Kategori: {item.Item1.Category}, Pris: {item.Item3}");
+                Console.WriteLine($"Produktnamn: {item}");
             }
 
         }
@@ -165,15 +181,6 @@ class Program
         // Gå till menyn
         Console.WriteLine("Tryck enter för att komma till menyn");
         Console.ReadLine();
-    }
-
-    static void TaBortProdukt(List<Program>inventory)
-    {
-        int i = 0; // Todo: ta bort exempel på index att retunera // int i = SearchProduct(inventory) //Så skulle man kunna kalla på metoden i remove metoden
-        //Insert search here, return either and int for position or directly that position
-        inventory.Remove(inventory[i]); // if remove specific position 
-
-        
     }
 
 }
