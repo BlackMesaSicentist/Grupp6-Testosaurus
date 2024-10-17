@@ -64,7 +64,7 @@ class Program
 
                 case "4":
 
-                    SokProdukt();
+                    SokProdukt(inventory);
 
                     break;
 
@@ -136,6 +136,48 @@ class Program
         inventory.Remove(inventory[i]); // if remove specific position 
 
 
+    }
+
+
+    // Sökfunktion - utförd av Adam
+    static void SokProdukt(List<string> inventory)
+    {
+        // Skapar UI och input för start sökningen
+        Console.WriteLine("Produktsökning\nSkriv det som ska sökas efter");
+        string searchQuery = Console.ReadLine().Trim().ToLower();
+
+
+        // Om sökningen är tom så kommer ett meddelande att visas och man kan skriva in en ny sökning
+        while (string.IsNullOrEmpty(searchQuery))
+        {
+            searchQuery.Trim().ToLower();
+            Console.WriteLine("Sök får inte vara tom\nSkriv i ny sökning:");
+            searchQuery = Console.ReadLine().Trim().ToLower();
+        }
+
+        // Söker igenom inventory för att hitta produkter som innehåller namn med passande söktext
+        var searchResults = inventory.Where(item => item.ToLower().Contains(searchQuery));
+
+        // Om produkter hittades så körs detta
+        if (searchResults.Any())
+        {
+            // Visar resultaten som hittades
+            Console.WriteLine("Sökresultat\n");
+            // Hämtar och visar produkternas namn kategori och pris
+            foreach (var item in searchResults)
+            {
+                Console.WriteLine($"Produktnamn: {item}");
+            }
+
+        }
+        // Om inga produkter hitades så körs och ett meddelade visas att inga produkter hittades
+        else
+        {
+            Console.WriteLine("Ingen produkt hittades");
+        }
+        // Gå till menyn
+        Console.WriteLine("Tryck enter för att komma till menyn");
+        Console.ReadLine();
     }
 
 }
