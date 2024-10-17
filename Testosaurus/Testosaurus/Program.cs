@@ -37,10 +37,6 @@ class Program
 
             Console.WriteLine("5. Avsluta");
 
-            Console.WriteLine("3. Avsluta");
-
-
-
             string val = Console.ReadLine();
 
             switch (val)
