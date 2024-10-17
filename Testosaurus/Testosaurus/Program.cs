@@ -57,7 +57,7 @@ class Program
 
                 case "3":
 
-                    TaBortProdukt();
+                    //TaBortProdukt();
 
                     break;
 
@@ -147,7 +147,7 @@ class Program
 
 
         // Om sökningen är tom så kommer ett meddelande att visas och man kan skriva in en ny sökning
-        while (string.IsNullOrEmpty(searchQuery))
+        while (string.IsNullOrWhiteSpace(searchQuery))
         {
             searchQuery.Trim().ToLower();
             Console.WriteLine("Sök får inte vara tom\nSkriv i ny sökning:");
