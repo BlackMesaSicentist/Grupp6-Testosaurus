@@ -51,7 +51,7 @@ class Program
                 case "2":
 
                     VisaInventarie();
-
+                    
                     break;
 
                 case "3":
@@ -106,8 +106,15 @@ class Program
     static void VisaInventarie()
 
     {
-
-        // TODO: Implementera metod för att visa inventarie
+        if (inventory.Count == 0)
+        {
+            Console.WriteLine("No inventory");
+        }
+        else
+        {
+            foreach (var item in inventory)
+                Console.WriteLine($"{item}");
+        }
 
     }
 
