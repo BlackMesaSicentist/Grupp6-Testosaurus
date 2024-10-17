@@ -130,15 +130,37 @@ class Program
 
     }
 
-    static void TaBortProdukt(List<Program> inventory)
+    static void TaBortProdukt()
     {
-        int i = 0; // Todo: ta bort exempel på index att retunera 
-        int i = SokProdukt(inventory);
-        //Så skulle man kunna kalla på metoden i remove metoden
-        //Insert search here, return either and int for position or directly that position
-        inventory.Remove(inventory[i]); // if remove specific position 
-
-
+        Console.Clear ();
+        String? search;
+        Boolean searchResults = false;
+        Console.Write("Skriv in en produkt som du vill ta bort: ");
+        while (searchResults == false)
+        {
+            search = Console.ReadLine();
+            if (search == "") { Console.WriteLine("Det finns ingen produkt som saknar tecken \nFörsök igen"); continue; }
+            else
+            {
+                for (int index = 0; index < inventory.Count;)
+                {
+                    searchResults = inventory[index].Contains(search);
+                    if (searchResults == true)
+                    {
+                        Console.WriteLine($"Du har taigt bort produkt: {inventory[index]} \nTryck på enter för att återvända till huvudmenyn");
+                        inventory.RemoveAt(index);
+                        Console.ReadKey();
+                        break;
+                    }    
+                }
+                if (searchResults == false) 
+                { 
+                    Console.WriteLine("Kan inte hitta en produkt med det namnet \nTryck på enter för att återvända till huvudmenyn");
+                    Console.ReadKey();
+                    break;
+                }
+            }
+        }
     }
 
 
