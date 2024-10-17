@@ -111,7 +111,7 @@ class Program
 
     }
 
-    static void RemoveProduct(List<Program>inventory)
+    static void TaBortProdukt(List<Program>inventory)
     {
         int i = 0; // Todo: ta bort exempel på index att retunera // int i = SearchProduct(inventory) //Så skulle man kunna kalla på metoden i remove metoden
         //Insert search here, return either and int for position or directly that position
