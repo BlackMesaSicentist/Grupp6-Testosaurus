@@ -26,7 +26,11 @@ class Program
 
             Console.WriteLine("2. Visa inventarie");
 
-            Console.WriteLine("3. Avsluta");
+            Console.WriteLine("3. Ta bort produkt");
+
+            Console.WriteLine("4. Sök produkt");
+
+            Console.WriteLine("5. Avsluta");
 
 
 
