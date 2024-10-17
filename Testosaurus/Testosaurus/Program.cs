@@ -85,7 +85,6 @@ class Program
     static void LäggTillProdukt()
 
     {
-
         // TODO: Implementera metod för att lägga till produkt
 
         Console.Clear(); //Tar bort menyn
@@ -102,8 +101,6 @@ class Program
 
         Console.WriteLine("Tryck enter för att komma tillbaka till menyn");
         Console.ReadLine();
-
-
     }
 
     static void VisaInventarie()
