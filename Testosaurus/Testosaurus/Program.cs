@@ -23,13 +23,15 @@ class Program
 
             Console.WriteLine("\nVälj en åtgärd:");
 
-            Console.WriteLine("1. Lägg till produkt");
+            Console.WriteLine("1. Lägg till produkt"); //Angelica
 
-            Console.WriteLine("2. Visa inventarie");
+            Console.WriteLine("2. Visa inventarie"); //David
 
-            Console.WriteLine("4. Sök Produkt");
+            Console.WriteLine("3. Ta bort produkt"); //Alex
 
-            Console.WriteLine("3. Avsluta");
+            Console.WriteLine("4. Sök produkt"); //Adam
+
+            Console.WriteLine("5. Avsluta");
 
 
 
@@ -56,6 +58,18 @@ class Program
                     break;
 
                 case "3":
+
+                    TaBortProdukt();
+
+                    break;
+
+                case "4":
+
+                    SokProdukt();
+
+                    break;
+
+                case "5":
 
                     return;
 
