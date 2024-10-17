@@ -87,8 +87,6 @@ class Program
     static void LäggTillProdukt()
 
     {
-        // TODO: Implementera metod för att lägga till produkt
-
         Console.Clear(); //Tar bort menyn
 
         //Tar in information från användaren
