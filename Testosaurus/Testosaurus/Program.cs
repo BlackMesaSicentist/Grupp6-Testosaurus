@@ -133,7 +133,7 @@ class Program
     static void TaBortProdukt(List<Program> inventory)
     {
         int i = 0; // Todo: ta bort exempel på index att retunera 
-        // int i = SearchProduct(inventory) 
+        int i = SokProdukt(inventory);
         //Så skulle man kunna kalla på metoden i remove metoden
         //Insert search here, return either and int for position or directly that position
         inventory.Remove(inventory[i]); // if remove specific position 
