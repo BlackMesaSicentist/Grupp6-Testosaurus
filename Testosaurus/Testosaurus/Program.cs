@@ -1,7 +1,7 @@
 ﻿using System;
 
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
+using System.ComponentModel;
 
 class Program
 
@@ -9,10 +9,12 @@ class Program
 
     static List<string> inventory = new List<string>();
 
-
     static void Main(string[] args)
 
     {
+        //Manually created prdocuts in inventory, gets positions [0] and [1]
+        inventory.Add("SlussMaskin");
+        inventory.Add("Borgar");
 
         Console.WriteLine("Välkommen till Fabrikshanteringssystemet!");
 
@@ -109,6 +111,15 @@ class Program
 
         // TODO: Implementera metod för att visa inventarie
 
+    }
+
+    static void RemoveProduct(List<Program>inventory)
+    {
+        int i = 0; // Todo: ta bort exempel på index att retunera // int i = SearchProduct(inventory) //Så skulle man kunna kalla på metoden i remove metoden
+        //Insert search here, return either and int for position or directly that position
+        inventory.Remove(inventory[i]); // if remove specific position 
+
+        
     }
 
 }
