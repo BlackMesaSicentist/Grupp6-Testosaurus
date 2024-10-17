@@ -9,6 +9,7 @@ class Program
 
     static List<string> inventory = new List<string>();
 
+
     static void Main(string[] args)
 
     {
@@ -93,17 +94,8 @@ class Program
         Console.WriteLine("Ange produktnamn:");
         String name = Console.ReadLine().ToLower();
 
-        Console.WriteLine("Ange produktens kategori:");
-        String category = Console.ReadLine().ToLower();
-
-        Console.WriteLine("Ange produktens pris:");
-        decimal price = Convert.ToDecimal(Console.ReadLine());
-
-        Console.WriteLine("Ange kvantitet:");
-        int quantity = Convert.ToInt32(Console.ReadLine());
-
         //lägger till i lager
-        inventory.Add(name, category, price, quantity);
+        inventory.Add(name);
 
         //meddelar användaren om lyckat genomförande
         Console.WriteLine("Din produkt har lagts till!\n");
