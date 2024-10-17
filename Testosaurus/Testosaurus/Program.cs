@@ -13,6 +13,7 @@ class Program
     static void Main(string[] args)
 
     {
+        //Manually created prdocuts in inventory, gets positions [0] and [1]
         inventory.Add("SlussMaskin");
         inventory.Add("Borgar");
 
