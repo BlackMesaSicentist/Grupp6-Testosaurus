@@ -9,6 +9,7 @@ class Program
 
     static List<string> inventory = new List<string>();
 
+
     static void Main(string[] args)
 
     {
@@ -88,9 +89,22 @@ class Program
     static void LäggTillProdukt()
 
     {
-
         // TODO: Implementera metod för att lägga till produkt
 
+        Console.Clear(); //Tar bort menyn
+
+        //Tar in information från användaren
+        Console.WriteLine("Ange produktnamn:");
+        String name = Console.ReadLine().ToLower();
+
+        //lägger till i lager
+        inventory.Add(name);
+
+        //meddelar användaren om lyckat genomförande
+        Console.WriteLine("Din produkt har lagts till!\n");
+
+        Console.WriteLine("Tryck enter för att komma tillbaka till menyn");
+        Console.ReadLine();
     }
 
     static void VisaInventarie()
