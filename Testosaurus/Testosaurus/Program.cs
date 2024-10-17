@@ -54,10 +54,6 @@ class Program
 
                     break;
 
-                case "4":
-                    SökProdukt(); 
-                    break;
-
                 case "3":
 
                     TaBortProdukt();
@@ -66,7 +62,7 @@ class Program
 
                 case "4":
 
-                    SokProdukt();
+                    SokProdukt(inventory);
 
                     break;
 
@@ -117,7 +113,7 @@ class Program
 
 
     // Sökfunktion - utförd av Adam
-    static void SökProdukt(List<(Product, /*StorageLocation,*/ int)> inventory)
+    static void SokProdukt(List<(string, int)> inventory)
     {
         // Skapar UI och input för start sökningen
         Console.WriteLine("Produktsökning\nSkriv det som ska sökas efter");
@@ -133,7 +129,7 @@ class Program
         }
 
         // Söker igenom inventory för att hitta produkter som innehåller namn med passande söktext
-        var searchResults = inventory.Where(item => item.Item1.Name.ToLower().Contains(searchQuery));
+        var searchResults = inventory.Where(item => item.Item1.ToLower().Contains(searchQuery));
 
         // Om produkter hittades så körs detta
         if (searchResults.Any())
@@ -143,7 +139,7 @@ class Program
             // Hämtar och visar produkternas namn kategori och pris
             foreach (var item in searchResults)
             {
-                Console.WriteLine($"Produktnamn: {item.Item1.Name}, Kategori: {item.Item1.Category}, Pris: {item.Item3}");
+                Console.WriteLine($"Produktnamn: {item.Item1}");
             }
 
         }
