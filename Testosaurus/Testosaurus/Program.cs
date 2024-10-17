@@ -91,13 +91,22 @@ class Program
 
         //Tar in information från användaren
         Console.WriteLine("Ange produktnamn:");
+
         String name = Console.ReadLine().ToLower();
 
         //lägger till i lager
-        inventory.Add(name);
-
+        if (name != null)
+        {
+            inventory.Add(name);
         //meddelar användaren om lyckat genomförande
-        Console.WriteLine("Din produkt har lagts till!\n");
+            Console.WriteLine("Din produkt har lagts till!\n");
+        }
+        else
+        {
+            Console.WriteLine("Ej gilltig sökning, försök igen:");
+            String nameAgain = Console.ReadLine().ToLower();
+            inventory.Add(nameAgain);
+        }
 
         Console.WriteLine("Tryck enter för att komma tillbaka till menyn");
         Console.ReadLine();
@@ -111,13 +120,15 @@ class Program
 
     }
 
-    static void TaBortProdukt(List<Program>inventory)
+    static void TaBortProdukt(List<Program> inventory)
     {
-        int i = 0; // Todo: ta bort exempel på index att retunera // int i = SearchProduct(inventory) //Så skulle man kunna kalla på metoden i remove metoden
+        int i = 0; // Todo: ta bort exempel på index att retunera 
+        // int i = SearchProduct(inventory) 
+        //Så skulle man kunna kalla på metoden i remove metoden
         //Insert search here, return either and int for position or directly that position
         inventory.Remove(inventory[i]); // if remove specific position 
 
-        
+
     }
 
 }
