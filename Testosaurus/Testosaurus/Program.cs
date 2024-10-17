@@ -1,6 +1,7 @@
 ﻿using System;
 
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 class Program
 
@@ -85,6 +86,31 @@ class Program
     {
 
         // TODO: Implementera metod för att lägga till produkt
+
+        Console.Clear(); //Tar bort menyn
+
+        //Tar in information från användaren
+        Console.WriteLine("Ange produktnamn:");
+        String name = Console.ReadLine().ToLower();
+
+        Console.WriteLine("Ange produktens kategori:");
+        String category = Console.ReadLine().ToLower();
+
+        Console.WriteLine("Ange produktens pris:");
+        decimal price = Convert.ToDecimal(Console.ReadLine());
+
+        Console.WriteLine("Ange kvantitet:");
+        int quantity = Convert.ToInt32(Console.ReadLine());
+
+        //lägger till i lager
+        inventory.Add(name, category, price, quantity);
+
+        //meddelar användaren om lyckat genomförande
+        Console.WriteLine("Din produkt har lagts till!\n");
+
+        Console.WriteLine("Tryck enter för att komma tillbaka till menyn");
+        Console.ReadLine();
+
 
     }
 
