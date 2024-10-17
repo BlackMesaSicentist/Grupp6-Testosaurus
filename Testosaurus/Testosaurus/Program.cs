@@ -125,16 +125,40 @@ class Program
         }
 
     }
-
-    static void TaBortProdukt(List<Program> inventory)
+    //Ta bort produkt av Alex Bullerjahn
+    static void TaBortProdukt()
     {
-        int i = 0; // Todo: ta bort exempel på index att retunera 
-        int i = SokProdukt(inventory);
-        //Så skulle man kunna kalla på metoden i remove metoden
-        //Insert search here, return either and int for position or directly that position
-        inventory.Remove(inventory[i]); // if remove specific position 
+        Console.Clear (); //Rensar consol
+        String? search; //String för att kunna söka på produkt
+        Boolean searchResults = false; //Boolean för loop om den hittar eller inte hittar
+        Console.Write("Skriv in en produkt som du vill ta bort: ");
 
+        while (searchResults == false) //Loop som säkrar att man inte lämnar en tom sökning
+        {
+            search = Console.ReadLine(); //Sökning
 
+            if (search == "") { Console.WriteLine("Det finns ingen produkt som saknar tecken \nFörsök igen"); continue; } //Om den saknar tecken så börjar loopen om
+            else
+            {
+                for (int index = 0; index < inventory.Count;) //Sökfunktion som räknar upp platser med index
+                {
+                    searchResults = inventory[index].Contains(search); //Kollar om den har hittat något
+                    if (searchResults == true) //Om den hittar så tar den bort
+                    {
+                        Console.WriteLine($"Du har taigt bort produkt: {inventory[index]} \nTryck på enter för att återvända till huvudmenyn");
+                        inventory.RemoveAt(index);
+                        Console.ReadKey();
+                        break;
+                    }    
+                }
+                if (searchResults == false)  // Om den inte hittar så får man detta svar och återvänder till meny
+                { 
+                    Console.WriteLine("Kan inte hitta en produkt med det namnet \nTryck på enter för att återvända till huvudmenyn");
+                    Console.ReadKey();
+                    break;
+                }
+            }
+        }
     }
 
 
